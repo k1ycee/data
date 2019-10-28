@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'quote.dart';
+import 'wise_card.dart';
 
 void main() => runApp(MaterialApp(
   home:Quotes(),
@@ -20,49 +21,19 @@ class _QuotesState extends State<Quotes> {
     Kwuotes(author: 'Tech', text:  'Currently, the world’s largest hard drive is a 60TB SSD')
   ];
 
-  Widget quoteTemp (quote){
-    return Card(
-      margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0 ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              quote.text,
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.blue,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Center(
-              child: Text(
-                quote.author,
-                style: TextStyle(
-                  fontSize: 24.0,
-                  color: Colors.grey[800]
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[300],
       appBar: AppBar(
         title: Text('Wise Quoutes'),
         centerTitle: true,
         backgroundColor: Colors.black,
       ),
       body: Column(
-        children: quotes.map((quote) => quoteTemp(quote)).toList(),
+        children: quotes.map((quote) => WiseCard(quote:quote)).toList(),
       ),
     );
   }
 }
+
