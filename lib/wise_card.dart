@@ -5,7 +5,8 @@ import 'quote.dart';
 class WiseCard extends StatelessWidget {
 
   final Kwuotes quote;
-  WiseCard({this.quote});
+  final Function delete;
+  WiseCard({this.quote,this.delete});
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,12 @@ class WiseCard extends StatelessWidget {
                     color: Colors.grey[800]
                 ),
               ),
+            ),
+            SizedBox(height: 10.0),
+            FlatButton.icon(
+              label: Text('delete'),
+              icon: Icon(Icons.delete),
+              onPressed: delete,
             )
           ],
         ),
